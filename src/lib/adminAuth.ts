@@ -20,10 +20,15 @@ export async function createAdminAccount(email: string, password: string, fullNa
     },
   });
 
+  const redirectUrl = typeof window !== 'undefined' 
+    ? `${window.location.origin}/admin/login`
+    : undefined;
+
   const { data, error } = await isolatedClient.auth.signUp({
     email,
     password,
     options: {
+      emailRedirectTo: redirectUrl,
       data: {
         full_name: fullName?.trim() || '',
       },
