@@ -1,26 +1,32 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const rawUrl = import.meta.env.VITE_SUPABASE_URL;
+const rawAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+const supabaseUrl = rawUrl?.trim().replace(/^["']|["']$/g, '') || '';
+const supabaseAnonKey = rawAnonKey?.trim().replace(/^["']|["']$/g, '') || '';
 
 function isValidUrl(url: string): boolean {
+  if (!url) return false;
   try {
-    new URL(url)
-    return true
+    const parsed = new URL(url);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
   } catch {
-    return false
+    return false;
   }
 }
 
-const hasValidConfig = supabaseUrl && supabaseAnonKey && isValidUrl(supabaseUrl)
+const hasValidConfig = Boolean(supabaseUrl && supabaseAnonKey && isValidUrl(supabaseUrl));
 
 if (!hasValidConfig) {
   console.warn(
-    '%c⚠️ Supabase no configurado',
+    '%c⚠️ Supabase no configurado o URL inválida',
     'color: #FF6B00; font-weight: bold;',
-    '\nConfigurá VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY en .env.local',
-    '\nLa app funcionará en modo demo sin conexión a base de datos.'
-  )
+    '\nURL recibida:', supabaseUrl ? `"${supabaseUrl}"` : 'VACÍA',
+    '\nAnonKey recibida:', supabaseAnonKey ? 'PRESENTE' : 'VACÍA'
+  );
+} else {
+  console.log('%c✅ Supabase conectado correctamente', 'color: #00FF88; font-weight: bold;', supabaseUrl);
 }
 
 // Create client only if we have valid config, otherwise create a dummy that won't crash
