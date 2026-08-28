@@ -1,0 +1,4 @@
+﻿full_name,email,phone,photo_url,roles,experience_years,work_history,portfolio_url,status,rating
+Martín Gómez,martin.gomez@example.com,+54 9 11 4567-8901,https://images.unsplash.com/photo-1534528741775-53994a69daeb,"{""Diseñador gráfico"",""Director de Arte""}",4,4 años liderando equipos creativos y diseño de branding para marcas internacionales.,https://behance.net/martingomez,pending,
+Lucía Fernández,lucia.fernandez@example.com,+54 9 11 2345-6789,https://images.unsplash.com/photo-1517841905240-472988babdf9,"{""Edición de video""}",2,Especialista en Premiere y After Effects para contenido de YouTube y TikTok.,https://vimeo.com/luciafernandez,accepted,9
+Esteban Rossi,esteban.rossi@example.com,+54 9 11 9876-5432,https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d,"{""Redactor""}",5,Copywriting y redacción creativa para campañas B2B y redes sociales.,https://medium.com/@estebanrossi,pending,

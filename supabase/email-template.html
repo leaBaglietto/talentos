@@ -1,0 +1,36 @@
+<html>
+<head>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; background-color: #1a1a1a; color: #ffffff; margin: 0; padding: 0; }
+    .container { max-width: 600px; margin: 0 auto; padding: 40px 20px; }
+    .card { background-color: #242424; border-radius: 12px; padding: 40px; border: 1px solid #333333; }
+    .logo { text-align: center; margin-bottom: 30px; font-size: 24px; font-weight: 700; color: #FF6B00; }
+    h1 { font-size: 22px; margin-bottom: 16px; color: #ffffff; }
+    p { font-size: 16px; line-height: 1.6; color: #cccccc; margin-bottom: 16px; }
+    .highlight { background-color: #2a2a2a; border-radius: 8px; padding: 16px; margin: 20px 0; border-left: 4px solid #FF6B00; }
+    .highlight p { margin-bottom: 8px; color: #ffffff; }
+    .btn { display: inline-block; background-color: #FF6B00; color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 16px; margin-top: 20px; }
+    .footer { text-align: center; margin-top: 30px; color: #666666; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="logo">TALENTOS</div>
+      <h1>¡Bienvenido/a al equipo de administración!</h1>
+      <p>Te registraste exitosamente en la plataforma de gestión de freelancers.</p>
+      <div class="highlight">
+        <p><strong>Tu email de acceso:</strong> {{ .Email }}</p>
+        <p>Recordá guardar tu contraseña en un lugar seguro.</p>
+      </div>
+      <p>Para confirmar tu cuenta y activar tu acceso, hacé click en el siguiente botón:</p>
+      <p style="text-align: center;">
+        <a href="{{ .ConfirmationURL }}" class="btn">Confirmar mi cuenta</a>
+      </p>
+      <div class="footer">
+        <p>Si no creaste esta cuenta, podés ignorar este email.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
